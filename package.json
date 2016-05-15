@@ -1,0 +1,25 @@
+{
+  "name": "cmdrouter",
+  "version": "0.1.0",
+  "description": "Simplistic way of route a command line to a function (or generator function)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BriteSnow/node-cmdrouter.git"
+  },
+  "keyword": [
+    "process",
+    "npm",
+    "function",
+    "call"
+  ],
+  "dependencies": {
+    "async6": "^0.1.2"
+  },
+  "devDependencies": {},
+  "author": "Jeremy Chone <jeremy.chone@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BriteSnow/node-cmdrouter/issues"
+  }
+}
