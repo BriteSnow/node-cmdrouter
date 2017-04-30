@@ -12,7 +12,11 @@ const router = require("cmdrouter");
 
 // create a router instance with the name/function dictionary, 
 // and call route() to route from the process.argv
-router({helloWorld, hello}).route();
+router({_default, helloWorld, hello}).route();
+
+function _default(){
+    console.log("no command, _default function executed");
+}
 
 function helloWorld(){
     console.log("hello world");
@@ -32,6 +36,8 @@ function* asyncWork(){
 From command line: 
 
 ```sh
+> node testcmd
+no command, _default function executed
 > node testcmd hellowWorld
 hello world
 > node testcmd hello John

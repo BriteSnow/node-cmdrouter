@@ -1,6 +1,6 @@
 {
   "name": "cmdrouter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simplistic way of route a command line to a function (or generator function)",
   "main": "index.js",
   "repository": {

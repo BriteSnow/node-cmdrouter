@@ -13,24 +13,20 @@ function route(cmds){
 	var params = (process.argv.length >= 4)? process.argv.slice(3): [];
 	// TODO: probably need to slice the remaining arguments as parameters
 
-	if (!cmd){
+	// get the eventual fun for this command name (if empty, try to get the _default method)
+	var fn = (cmd)?cmds[cmd]:cmds["_default"];
+
+	if (fn){
+		//console.log(" will execute cmd ", cmd, "with constructuor name", fn.constructor.name);		
+		if (fn.constructor.name === 'GeneratorFunction'){
+			return run(fn.apply(null,params));
+		}else{
+			return fn.apply(null,params);	
+		}
+	}else {
+		console.log("Wrong command '" + cmd + "' is not a function");
 		printCmds();
-	}else{
-		var fn = cmds[cmd];
-		if (fn){
-			//console.log(" will execute cmd ", cmd, "with constructuor name", fn.constructor.name);
-			
-			if (fn.constructor.name === 'GeneratorFunction'){
-				return run(fn.apply(null,params));
-			}else{
-				return fn.apply(null,params);	
-			}
-			
-		}else {
-			console.log("Wrong command '" + cmd + "' is not a function");
-			printCmds();
-		}	
-	}
+	}	
 
 	function printCmds(){
 		var msg = "Commands are:";
