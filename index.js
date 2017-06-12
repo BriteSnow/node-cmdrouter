@@ -1,4 +1,5 @@
-const run = require("async6").run;
+
+
 
 module.exports = function(cmds){
 	return {route: function(){
@@ -8,7 +9,7 @@ module.exports = function(cmds){
 };
 
 // Will route the process call to a function contained in the "cmds" object
-function route(cmds){
+async function route(cmds){
 	var cmd = (process.argv.length >= 3)? process.argv[2] : null;
 	var params = (process.argv.length >= 4)? process.argv.slice(3): [];
 	// TODO: probably need to slice the remaining arguments as parameters
@@ -17,11 +18,11 @@ function route(cmds){
 	var fn = (cmd)?cmds[cmd]:cmds["_default"];
 
 	if (fn){
-		//console.log(" will execute cmd ", cmd, "with constructuor name", fn.constructor.name);		
-		if (fn.constructor.name === 'GeneratorFunction'){
-			return run(fn.apply(null,params));
-		}else{
-			return fn.apply(null,params);	
+		try{
+			return await fn.apply(null,params);	
+		}catch(ex){
+			console.log(`FAIL to run ${fn.name}(${params}). Cause:\n${ex}`);
+			process.exit(1);
 		}
 	}else {
 		console.log("Wrong command '" + cmd + "' is not a function");

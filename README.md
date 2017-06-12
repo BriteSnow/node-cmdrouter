@@ -2,7 +2,7 @@
 
 Simple command line router that maps command line arguments to javascript function name and params. Very simple mapping at this point (first param is the method name, subsequent ones are passed as param). 
 
-_Supports  generator function with yield and async6 support.__
+Note: From v0.2.x now node.js > 8 is required.
 
 ## usage
 
@@ -26,9 +26,9 @@ function hello(name){
     console.log(`Hello ${name}`);
 }
 
-function* asyncWork(){
+async function asyncWork(){
     var a = yield 12;
-    var b = yield getPromiseForB(); // returns a promise that will resolve with 8.
+    var b = await getPromiseForB(); // returns a promise that will resolve with 8.
     console.log(`a + b = ${a + b}`);
 }
 ```

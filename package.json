@@ -1,7 +1,7 @@
 {
   "name": "cmdrouter",
-  "version": "0.1.1",
-  "description": "Simplistic way of route a command line to a function (or generator function)",
+  "version": "0.2.0",
+  "description": "Simplistic way of route a command line to a function",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -10,13 +10,14 @@
   "keyword": [
     "process",
     "npm",
-    "function",
-    "call"
+    "routing",
+    "command line"
   ],
-  "dependencies": {
-    "async6": "^0.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "author": "Jeremy Chone <jeremy.chone@gmail.com>",
   "license": "MIT",
   "bugs": {
