@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Simplistic way of route a command line to a function",
   "main": "index.js",
+  "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git://github.com/BriteSnow/node-cmdrouter.git"

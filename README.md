@@ -4,11 +4,14 @@ Simple command line router that maps command line arguments to javascript functi
 
 Note: From v0.2.x now node.js > 8 is required.
 
+Note: From v0.3.x needs to import as `const { router } = require("cmdrouter");` (rather than the 0.2.x  `const router = require("cmdrouter");`)
+
 ## usage
 
 _testcmd.js_
 ```js
-const router = require("cmdrouter");
+const { router } = require("cmdrouter");
+// or import { router } from 'cmdrouter'
 
 // create a router instance with the name/function dictionary, 
 // and call route() to route from the process.argv
